@@ -2,8 +2,9 @@
 #include<algorithm>
 using namespace std;
 
-    int bs1(int nums[], int start, int end, int target)
+    int BS1(int nums[], int start, int end, int target)
     {
+	//retorna a posicao anterior a primeira ocorrencia do target
         int min = start;
         int max = end;
         
@@ -28,6 +29,7 @@ using namespace std;
     
     int bs2(int nums[], int start, int end, int target)
     {
+	//retorna a posicao seguinte a ultima ocorrencia do target
         int min = start;
         int max = end;
         
@@ -52,7 +54,7 @@ using namespace std;
 int main() 
 {
     int N;
-	while(cin >> N)
+  while(cin >> N)
   {
             
             
@@ -83,25 +85,25 @@ int main()
       int m1;
       int m2;
             
-      m1 = bs1(rack, 0, j - 1, M);
+      m1 = BS1(rack, 0, j - 1, M);
             
-            m2 = bs2(rack, 0, j - 1, M);
+      m2 = BS2(rack, 0, j - 1, M);
             
-            if(m1 + 1 > m2 - 1)
-            {
-                cout << M;
-                cout << " not found\n";
-                continue;
-            }
-            else
-            {
-                cout << M;
-                cout << " found from "; 
-                cout << (m1 + 1);
-                cout << " to "; 
-                cout << (m2 - 1);
-                cout << "\n";
-            }
-        }
-        return 0;
+      if(m1 + 1 > m2 - 1)
+      {
+      	cout << M;
+        cout << " not found\n";
+        continue;
+      }
+      else
+      {
+      	cout << M;
+        cout << " found from "; 
+        cout << (m1 + 1);
+        cout << " to "; 
+        cout << (m2 - 1);
+        cout << "\n";
+      }
     }
+    return 0;
+  }
