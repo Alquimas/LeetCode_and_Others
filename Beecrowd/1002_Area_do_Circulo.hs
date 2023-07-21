@@ -1,11 +1,12 @@
-truncate' :: Double -> Int -> Double
-truncate' x n = (fromIntegral (floor (x * t))) / t
-    where t = 10^n
+import Text.Printf
+
+roundToStr :: (PrintfArg a, Floating a) => Int -> a -> String
+roundToStr = printf "%0.*f"
 
 extract :: [Double] -> Double
 extract (x:[]) = x
 
-show' :: (Show a) => a -> String
-show' a = "A=" ++ show a ++ "\n"
+show' :: String -> String
+show' a = "A=" ++ a ++ "\n"
 
-main = interact $ show' . (`truncate'` 4) . (pi *) . (^2) . extract . map read . words 
+main = interact $ show' . (roundToStr 4) . ((3.14159) *) . (^2) . extract . map read . words 
