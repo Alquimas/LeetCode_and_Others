@@ -1,6 +1,6 @@
 sequence' :: Int -> [Int]
 sequence' 0 = [0]
-sequence' a = sequence' (a-1) ++ (take a (repeat a))
+sequence' a = sequence' (a - 1) ++ (take a (repeat a))
 
 showList' :: [Int] -> String
 showList' [] = []
