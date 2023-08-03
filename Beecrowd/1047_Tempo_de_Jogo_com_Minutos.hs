@@ -6,4 +6,5 @@ function (a:b:c:d:_)
         k = mod (-60*a - b + 60*c + d) 1440
         a1 = div k 60
         a2 = mod k 60
+        
 main = interact $ function . map read . words
