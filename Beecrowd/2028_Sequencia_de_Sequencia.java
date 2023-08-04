@@ -35,7 +35,8 @@ public class Main
             return dp[a];
         }
         
-        return (sequence(a - 1) + " " + repeat(a));
+        dp[a] = sequence(a - 1) + " " + repeat(a);
+        return dp[a];
     }
     
     private static String repeat(int a)
