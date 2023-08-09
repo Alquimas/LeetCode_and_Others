@@ -15,11 +15,11 @@ quicksort :: Int -> [Int] -> [Int]
 quicksort _ [] = []
 quicksort m (x:xs) = quicksort m menorEq ++ [x] ++ quicksort m maior
     where 
-        menorEq = [a | a <- xs, ordering1 x a m]
-        maior = [a | a <- xs, ordering2 a x m]
+        menorEq = [a | a <- xs, orderingTotal x a m]
+        maior = [a | a <- xs, orderingStrict a x m]
         
-ordering1 :: Int -> Int -> Int -> Bool
-ordering1 a b c 
+orderingTotal :: Int -> Int -> Int -> Bool
+orderingTotal a b c 
     | a == b = True
     | mod' a c > mod' b c = True
     | mod' a c < mod' b c = False
@@ -28,10 +28,10 @@ ordering1 a b c
     | (mod' a 2 == 1) && (mod' b 2 == 1) = if ((a + b) - ord a b) == a then True else False
     | (mod' a 2 == 0) && (mod' b 2 == 0) = if (ord a b) == a then True else False
     
-ordering2 :: Int -> Int -> Int -> Bool
-ordering2 a b c
+orderingStrict :: Int -> Int -> Int -> Bool
+orderingStrict a b c
     | a == b = False
-    | otherwise = ordering1 a b c
+    | otherwise = orderingTotal a b c
 
 mod' :: Int -> Int -> Int
 mod' a b
