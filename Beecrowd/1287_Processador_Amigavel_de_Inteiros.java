@@ -11,9 +11,9 @@ public class Main
         outerloop:
         while(sc.hasNext())
         {
-            String s = sc.nextLine();
+            char[] s = sc.nextLine().toCharArray();
             
-            if(s.length() == 0)
+            if(s.length == 0)
             {
                 output += "error\n";
                 continue;
@@ -22,20 +22,20 @@ public class Main
             int t = 0;
             boolean p = false;
             
-            for(int i = 0; i < s.length(); i++)
+            for(int i = 0; i < s.length; i++)
             {
                 int k = 0;
-                if(s.charAt(i) == 'O' || s.charAt(i) == 'o') k = 0;
-                else if(s.charAt(i) == 'l') k = 1;
-                else if(s.charAt(i) == ',' || s.charAt(i) == ' ') continue;
-                else if(s.charAt(i) < '0' || s.charAt(i) > '9')
+                if(s[i] == 'O' || s[i] == 'o') k = 0;
+                else if(s[i] == 'l') k = 1;
+                else if(s[i] == ',' || s[i] == ' ') continue;
+                else if(s[i] < '0' || s[i] > '9')
                 {
                     output += "error\n";
                     continue outerloop;
                 }
                 else
                 { 
-                    k = s.charAt(i) - '0';
+                    k = s[i] - '0';
                 }
                 
                 p = true;
